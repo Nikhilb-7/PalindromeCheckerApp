@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /*
 @author Nikhil
 @version 1.0
@@ -7,19 +9,18 @@ Checks Palindrome by using for loop in reverse method
 */
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "radar";
+        String input = "noon";
         System.out.println("Input : " + input);
-        char[] chars = input.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
+        Stack<Character> stack=new Stack<>();
+        for (char c :input.toCharArray()){
+            stack.push(c);
+        }
         boolean isPalindrome = true;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
         System.out.println("Is Palindrome? : " + isPalindrome);
     }
