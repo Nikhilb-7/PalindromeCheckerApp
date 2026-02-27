@@ -2,23 +2,21 @@
 @author Nikhil
 @version 1.0
 Created class as PalindromeCheckerApp
-Application entry point for UC9
-Checks Palindrome by using Recursive
+Application entry point for UC10
+Checks Palindrome by using Case-Insensitive & Space-Ignored
 */
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "madam";
+        String input = "A man a plan a canal Panama";
         System.out.println("Input : " + input);
-        boolean isPalindrome = check(input, 0, input.length() - 1);
+        String normalised = input.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+        boolean isPalindrome = true;
+        for (int i = 0; i < normalised.length() / 2; i++) {
+            if (normalised.charAt(i) != normalised.charAt(normalised.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
         System.out.println("Is Palindrome? : " + isPalindrome);
-    }
-    private static boolean check(String s, int start, int end) {
-        if (start >= end) {
-            return true;
-        }
-        if (s.charAt(start) != s.charAt(end)) {
-            return false;
-        }
-        return check(s, start + 1, end - 1);
     }
 }
