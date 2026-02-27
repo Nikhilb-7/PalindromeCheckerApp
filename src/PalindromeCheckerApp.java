@@ -2,12 +2,21 @@
 @author Nikhil
 @version 1.0
 Created class as PalindromeCheckerApp
-Printed Three Statements for  Application Entry and Welcome Message
+Application entry point for UC2
+Checks Palindrome by using for loop
 */
 public class PalindromeCheckerApp {
-        public static void main (String[] args) {
-            System.out.println("Welcome to the Palindrome Checker Management System");
-            System.out.println("Version : 1.0");
-            System.out.println("system initialized successfully.");
+    public static void main (String[] args) {
+        String input = "madam";
+        System.out.println("Input text: "+input);
+        boolean isPalindrome = true;
+        for (int i = 0; i <input.length() / 2; i++) {
+            if (isPalindrome) {
+                System.out.println("Is it a Palindrome? : true");
+                break;
+            } else {
+                System.out.println("Is it a Palindrome? : false");
+            }
         }
     }
+}
