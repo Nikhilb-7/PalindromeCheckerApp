@@ -1,30 +1,24 @@
-import javax.swing.*;
-import java.util.*;
-
 /*
 @author Nikhil
 @version 1.0
 Created class as PalindromeCheckerApp
-Application entry point for UC8
-Checks Palindrome by using Linked List Based
+Application entry point for UC9
+Checks Palindrome by using Recursive
 */
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "level";
+        String input = "madam";
         System.out.println("Input : " + input);
-        LinkedList<Character> List =new LinkedList<>();
-        for (char c :input.toCharArray()){
-            List.add(c);
-        }
-        boolean isPalindrome = true;
-        while (List.size()>1) {
-            char first = List.removeFirst();
-            char last = List.removeLast();
-            if (first != last) {
-                isPalindrome = false;
-                break;
-            }
-        }
+        boolean isPalindrome = check(input, 0, input.length() - 1);
         System.out.println("Is Palindrome? : " + isPalindrome);
+    }
+    private static boolean check(String s, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (s.charAt(start) != s.charAt(end)) {
+            return false;
+        }
+        return check(s, start + 1, end - 1);
     }
 }
